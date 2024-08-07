@@ -1,9 +1,9 @@
 #!/usr/bin/python3
 """Test BaseModel for expected behavior and documentation"""
-from datetime import datetime
+from datetime import datetime, timedelta
 import inspect
 import models
-import pep8 as pycodestyle
+import pycodestyle
 import time
 import unittest
 from unittest import mock
@@ -82,6 +82,7 @@ class TestBaseModel(unittest.TestCase):
         """Test that two BaseModel instances have different datetime objects
         and that upon creation have identical updated_at and created_at
         value."""
+        tolerance = timedelta(milliseconds=4000)
         tic = datetime.now()
         inst1 = BaseModel()
         toc = datetime.now()
